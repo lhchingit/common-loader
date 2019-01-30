@@ -17,7 +17,7 @@ public class CommonLoaderApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(CommonLoaderApplication.class, args);
 	}
-	
+
 	@Autowired
 	DataSourceConfiguration dataSourceConfig;
 
@@ -30,4 +30,3 @@ public class CommonLoaderApplication implements CommandLineRunner {
 		logger.info(taskConfiguration.getSettings().toString());
 	}
 }
-

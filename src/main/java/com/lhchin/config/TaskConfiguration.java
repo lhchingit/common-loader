@@ -3,10 +3,11 @@ package com.lhchin.config;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-
-import com.lhchin.config.DataSourceConfiguration.Setting;
+import org.springframework.validation.annotation.Validated;
 
 /**
  * 
@@ -15,6 +16,7 @@ import com.lhchin.config.DataSourceConfiguration.Setting;
  */
 @Component
 @ConfigurationProperties("task")
+@Validated
 public class TaskConfiguration {
 	private List<Setting> settings = new ArrayList<>();
 
@@ -23,7 +25,10 @@ public class TaskConfiguration {
 	}
 
 	public static class Setting {
+		@NotEmpty
 		private String taskId;
+
+		@NotEmpty
 		private String targetTableName;
 
 		public String getTaskId() {
