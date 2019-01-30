@@ -1,0 +1,35 @@
+server:
+  port: 5566
+  
+logging:
+  level:
+    org.springframework.web: ERROR
+
+datasource:
+  settings:
+    - db-name: db1
+      url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+      driver-class-name: org.h2.Driver
+      username: sa1
+      password: sa1
+    - db-name: db2
+      url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+      driver-class-name: org.h2.Driver
+      username: sa2
+      password: sa2
+
+spring:
+  application:
+    name: Common Loader
+  datasource:
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+    
+task:
+  settings:
+    - task-id: 1
+      target-table-name: xxx
+    - task-id: 2
+      target-table-name: qqq
