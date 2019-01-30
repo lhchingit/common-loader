@@ -30,6 +30,8 @@ spring:
 task:
   settings:
     - task-id: 1
+      mode: INSERT-UPDATE
       target-table-name: xxx
     - task-id: 2
+      mode: INSERT-UPDATE
       target-table-name: qqq

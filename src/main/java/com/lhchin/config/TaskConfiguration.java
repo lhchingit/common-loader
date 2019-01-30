@@ -9,6 +9,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
+import com.lhchin.aop.AllowableMode;
+
 /**
  * 
  * @author LHCHIN
@@ -28,6 +30,9 @@ public class TaskConfiguration {
 		@NotEmpty
 		private String taskId;
 
+		@AllowableMode
+		private String mode;
+
 		@NotEmpty
 		private String targetTableName;
 
@@ -36,6 +41,12 @@ public class TaskConfiguration {
 		}
 		public void setTaskId(String taskId) {
 			this.taskId = taskId;
+		}
+		public String getMode() {
+			return mode;
+		}
+		public void setMode(String mode) {
+			this.mode = mode;
 		}
 		public String getTargetTableName() {
 			return targetTableName;
@@ -46,7 +57,7 @@ public class TaskConfiguration {
 
 		@Override
 		public String toString() {
-			return "Task [taskId=" + taskId + ", targetTableName=" + targetTableName + "]";
+			return "Task [taskId=" + taskId + ", mode=" + mode + ", targetTableName=" + targetTableName + "]";
 		}
 	}
 }

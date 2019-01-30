@@ -10,6 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.lhchin.config.DataSourceConfiguration;
 import com.lhchin.config.TaskConfiguration;
 
+/**
+ * 
+ * @author LHCHIN
+ *
+ */
 @SpringBootApplication
 public class CommonLoaderApplication implements CommandLineRunner {
 	private static final Logger logger = LoggerFactory.getLogger(CommonLoaderApplication.class);
