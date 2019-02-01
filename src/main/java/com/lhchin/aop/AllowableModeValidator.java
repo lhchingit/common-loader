@@ -11,12 +11,8 @@ import javax.validation.ConstraintValidatorContext;
 public class AllowableModeValidator implements ConstraintValidator<AllowableMode, String> {
 
 	@Override
-	public boolean isValid(String mode, ConstraintValidatorContext context) {
-		if ("INSERT-UPDATE".equalsIgnoreCase(mode)) {
-			return true;
-		} else {
-		    return false;
-		}
+	public boolean isValid(String modeName, ConstraintValidatorContext context) {
+		return true;
 	}
 
 }

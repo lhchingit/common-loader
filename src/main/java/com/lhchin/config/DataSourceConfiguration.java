@@ -26,14 +26,14 @@ public class DataSourceConfiguration {
 	@NotEmpty
 	private List<Setting> settings = new ArrayList<>();
 
-	private Map<String, HikariDataSource> dataSources = new HashMap<>();
+	private Map<String, HikariDataSource> dataSourceMap = new HashMap<>();
 
 	public List<Setting> getSettings() {
 		return this.settings;
 	}
 
 	public HikariDataSource getDataSourcesByDbName(String dbName) {
-		if (this.dataSources.isEmpty()) {
+		if (this.dataSourceMap.isEmpty()) {
 			settings.forEach(dataSource -> {
 				HikariDataSource hikaliDataSource = new HikariDataSource();
 				hikaliDataSource.setJdbcUrl(dataSource.getUrl());
@@ -41,11 +41,11 @@ public class DataSourceConfiguration {
 				hikaliDataSource.setUsername(dataSource.getUsername());
 				hikaliDataSource.setPassword(dataSource.getPassword());
 
-				this.dataSources.put(dataSource.getDbName(), hikaliDataSource);
+				this.dataSourceMap.put(dataSource.getDbName().toUpperCase(), hikaliDataSource);
 			});
 		}
 
-		return this.dataSources.get(dbName);
+		return this.dataSourceMap.get(dbName.toUpperCase());
 	}
 
 	@Valid
@@ -146,7 +146,7 @@ public class DataSourceConfiguration {
 
 		@Override
 		public String toString() {
-			return "DataSource [dbName=" + dbName + ", url=" + url + ", driverClassName=" + driverClassName
+			return "Setting [dbName=" + dbName + ", url=" + url + ", driverClassName=" + driverClassName
 					+ ", username=" + username + ", password=" + password + "]";
 		}
 	}
