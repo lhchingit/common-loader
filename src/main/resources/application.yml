@@ -26,7 +26,9 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: sa
-    
+
+batchSize: 5000
+
 task:
   settings:
     - task-id: 1
@@ -35,7 +37,7 @@ task:
       target-table-name: xxx
       source-sql-stmt: xxx
     - task-id: 2
-      db-name: db1
+      db-name: db2
       mode: INSERT-UPDATE
       target-table-name: qqq
       source-sql-stmt: qqq

@@ -46,8 +46,6 @@ public class TaskConfiguration {
 
 		private String deleteSqlStmt;
 
-		private String primaryKeys;
-
 		private int batchSize;
 
 		public String getTaskId() {
@@ -98,14 +96,6 @@ public class TaskConfiguration {
 			this.deleteSqlStmt = deleteSqlStmt;
 		}
 
-		public String getPrimaryKeys() {
-			return primaryKeys;
-		}
-
-		public void setPrimaryKeys(String primaryKeys) {
-			this.primaryKeys = primaryKeys;
-		}
-
 		public int getBatchSize() {
 			return batchSize;
 		}
@@ -118,7 +108,7 @@ public class TaskConfiguration {
 		public String toString() {
 			return "Setting [taskId=" + taskId + ", dbName=" + dbName + ", mode=" + mode + ", targetTableName="
 					+ targetTableName + ", sourceSqlStmt=" + sourceSqlStmt + ", deleteSqlStmt=" + deleteSqlStmt
-					+ ", primaryKeys=" + primaryKeys + ", batchSize=" + batchSize + "]";
+					+ ", batchSize=" + batchSize + "]";
 		}
 	}
 }
